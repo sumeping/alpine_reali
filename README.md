@@ -2,6 +2,9 @@
 
 用于在 Alpine 系统快速安装 Xray Reality / Hysteria2，安装文件均从官方仓库拉取。
 
+项目引入参考：
+https://github.com/lanzimiaomiao/miaosh/tree/main?tab=readme-ov-file#miaosh
+
 ---
 
 ## 🚀 快速使用
