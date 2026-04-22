@@ -12,7 +12,7 @@ apk add curl bash wget
 ```
 
 ```bash
-wget https://github.com/sumeping/alpine_reali/blob/main/xray.sh
+wget https://raw.githubusercontent.com/sumeping/alpine_reali/main/xray.sh
 sh xray.sh
 ```
 
@@ -50,5 +50,5 @@ sh xray.sh
 ### 调整 TCP 窗口大小
 
 ```bash
-bash <(curl -L -s https://github.com/sumeping/alpine_reali/blob/main/tcp_alpine.sh)
+bash <(curl -L -s https://raw.githubusercontent.com/sumeping/alpine_reali/main/tcp_alpine.sh)
 ```
