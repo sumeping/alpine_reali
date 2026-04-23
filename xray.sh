@@ -411,25 +411,29 @@ echo "------------------------------------------------"
 if [ -n "$IP4" ]; then
     if [ "${USE_REALITY}" -eq 1 ]; then
         REALITY_V4_LINK="vless://${UUID}@${IP4}:${XRAY_PORT}?encryption=none&flow=xtls-rprx-vision&security=reality&sni=${DEST_DOMAIN}&fp=random&pbk=${PUBLIC_KEY}&sid=${SHORT_ID}&type=tcp&headerType=none#Reality_V4"
+        REALITY_V4_CLASH="- {name: Reality_V4, type: vless, server: '${IP4}', port: ${XRAY_PORT}, uuid: ${UUID}, udp: true, tls: true, flow: xtls-rprx-vision, servername: ${DEST_DOMAIN}, network: tcp, reality-opts: {public-key: ${PUBLIC_KEY}, short-id: ${SHORT_ID}}, client-fingerprint: random}"
         echo -e "${BLUE}[IPv4 reality节点信息]${NC}"
         echo -e "v2RayN: ${REALITY_V4_LINK}"
-        echo -e "Clash: - {name: Reality_V4, type: vless, server: '${IP4}', port: ${XRAY_PORT}, uuid: ${UUID}, udp: true, tls: true, flow: xtls-rprx-vision, servername: ${DEST_DOMAIN}, network: tcp, reality-opts: {public-key: ${PUBLIC_KEY}, short-id: ${SHORT_ID}}, client-fingerprint: random}"
+        echo -e "Clash: ${REALITY_V4_CLASH}"
         echo ""
         {
             echo "[${NOW_TS}] Reality_V4"
-            echo "${REALITY_V4_LINK}"
+            echo "v2rayN: ${REALITY_V4_LINK}"
+            echo "Clash: ${REALITY_V4_CLASH}"
             echo ""
         } >> "${LINK_HISTORY_PATH}"
     fi
     if [ "${USE_HYSTERIA}" -eq 1 ]; then
         HY2_V4_LINK="hysteria2://${UUID}@${IP4}:${XRAY_PORT}?sni=${DEST_DOMAIN}&insecure=0&allowInsecure=0&pinSHA256=${CERT_PIN}#Hysteria_V4"
+        HY2_V4_CLASH="- {name: Hysteria_V4, type: hysteria2, server: ${IP4}, port: ${XRAY_PORT}, password: ${UUID}, up: '100 Mbps', down: '200 Mbps', sni: ${DEST_DOMAIN}, skip-cert-verify: false, fingerprint: '${CERT_PIN}', alpn: [h3]}"
         echo -e "${BLUE}[IPv4 Hysteria2节点信息]${NC}"
         echo -e "${HY2_V4_LINK}"
-        echo -e "Clash: - {name: Hysteria_V4, type: hysteria2, server: ${IP4}, port: ${XRAY_PORT}, password: ${UUID}, up: '100 Mbps', down: '200 Mbps', sni: ${DEST_DOMAIN}, skip-cert-verify: false, fingerprint: '${CERT_PIN}', alpn: [h3]}"
+        echo -e "Clash: ${HY2_V4_CLASH}"
         echo ""
         {
             echo "[${NOW_TS}] Hysteria_V4"
-            echo "${HY2_V4_LINK}"
+            echo "URI: ${HY2_V4_LINK}"
+            echo "Clash: ${HY2_V4_CLASH}"
             echo ""
         } >> "${LINK_HISTORY_PATH}"
     fi
@@ -439,25 +443,29 @@ fi
 if [ -n "$IP6" ]; then
     if [ "${USE_REALITY}" -eq 1 ]; then
         REALITY_V6_LINK="vless://${UUID}@[${IP6}]:${XRAY_PORT}?encryption=none&flow=xtls-rprx-vision&security=reality&sni=${DEST_DOMAIN}&fp=random&pbk=${PUBLIC_KEY}&sid=${SHORT_ID}&type=tcp&headerType=none#Reality_V6"
+        REALITY_V6_CLASH="- {name: Reality_V6, type: vless, server: '${IP6}', port: ${XRAY_PORT}, uuid: ${UUID}, udp: true, tls: true, flow: xtls-rprx-vision, servername: ${DEST_DOMAIN}, network: tcp, reality-opts: {public-key: ${PUBLIC_KEY}, short-id: ${SHORT_ID}}, client-fingerprint: random}"
         echo -e "${BLUE}[IPv6 reality节点信息]${NC}"
         echo -e "v2RayN: ${REALITY_V6_LINK}"
-        echo -e "Clash: - {name: Reality_V6, type: vless, server: '${IP6}', port: ${XRAY_PORT}, uuid: ${UUID}, udp: true, tls: true, flow: xtls-rprx-vision, servername: ${DEST_DOMAIN}, network: tcp, reality-opts: {public-key: ${PUBLIC_KEY}, short-id: ${SHORT_ID}}, client-fingerprint: random}"
+        echo -e "Clash: ${REALITY_V6_CLASH}"
         echo ""
         {
             echo "[${NOW_TS}] Reality_V6"
-            echo "${REALITY_V6_LINK}"
+            echo "v2rayN: ${REALITY_V6_LINK}"
+            echo "Clash: ${REALITY_V6_CLASH}"
             echo ""
         } >> "${LINK_HISTORY_PATH}"
     fi
     if [ "${USE_HYSTERIA}" -eq 1 ]; then
         HY2_V6_LINK="hysteria2://${UUID}@[${IP6}]:${XRAY_PORT}?sni=${DEST_DOMAIN}&insecure=0&allowInsecure=0&pinSHA256=${CERT_PIN}#Hysteria_V6"
+        HY2_V6_CLASH="- {name: Hysteria_V6, type: hysteria2, server: '${IP6}', port: ${XRAY_PORT}, password: ${UUID}, up: '100 Mbps', down: '200 Mbps', sni: ${DEST_DOMAIN}, skip-cert-verify: false, fingerprint: '${CERT_PIN}', alpn: [h3]}"
         echo -e "${BLUE}[IPv6 Hysteria2节点信息]${NC}"
         echo -e "${HY2_V6_LINK}"
-        echo -e "Clash: - {name: Hysteria_V6, type: hysteria2, server: '${IP6}', port: ${XRAY_PORT}, password: ${UUID}, up: '100 Mbps', down: '200 Mbps', sni: ${DEST_DOMAIN}, skip-cert-verify: false, fingerprint: '${CERT_PIN}', alpn: [h3]}"
+        echo -e "Clash: ${HY2_V6_CLASH}"
         echo ""
         {
             echo "[${NOW_TS}] Hysteria_V6"
-            echo "${HY2_V6_LINK}"
+            echo "URI: ${HY2_V6_LINK}"
+            echo "Clash: ${HY2_V6_CLASH}"
             echo ""
         } >> "${LINK_HISTORY_PATH}"
     fi
