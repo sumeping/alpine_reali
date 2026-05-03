@@ -7,16 +7,16 @@ https://github.com/lanzimiaomiao/miaosh/tree/main?tab=readme-ov-file#miaosh
 
 ---
 
-## 🚀 快速使用
+## 🚀 一键执行代码
+
+先安装必要依赖，再下载并执行安装脚本：
 
 ```bash
-apk update
-apk add curl bash wget
+apk update && apk add curl bash wget
 ```
 
 ```bash
-wget https://raw.githubusercontent.com/sumeping/alpine_reali/main/xray.sh
-sh xray.sh
+wget -O xray.sh https://raw.githubusercontent.com/sumeping/alpine_reali/main/xray.sh && sh xray.sh
 ```
 
 ---
